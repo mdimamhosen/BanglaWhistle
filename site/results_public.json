@@ -1,0 +1,46 @@
+{
+  "models": {
+    "rslt3": {
+      "label": "BanglaWhistle rslt3",
+      "parameters": 15968768,
+      "weights_mb": 63.944321,
+      "decode": "beam 5"
+    },
+    "whisper_tiny_bn": {
+      "label": "shhossain/whisper-tiny-bn",
+      "parameters": 37760640,
+      "weights_mb": 151,
+      "decode": "forced Bengali prompt"
+    }
+  },
+  "tests": [
+    {
+      "name": "OpenSLR 53 zip f (in-domain, held out)",
+      "clips": 100,
+      "ours": {"cer": 0.1652892561983471, "wer": 0.4276729559748428, "rtf": 0.07784894800560314},
+      "baseline": {"cer": 0.2792207792207792, "wer": 0.8710691823899371, "rtf": 0.0661499958693967},
+      "mean_utterance_cer_gap": -0.1325447433899045,
+      "gap_ci95": [-0.17384223752138261, -0.09115226146407769]
+    },
+    {
+      "name": "FLEURS bn_in test (out of domain)",
+      "clips": 920,
+      "ours": {"cer": 0.6589377163330162, "wer": 0.9088686753837407, "rtf": 0.27338083025331994},
+      "baseline": {"cer": 0.40807238426816184, "wer": 0.8329164297896532, "rtf": 0.10710687216448063},
+      "mean_utterance_cer_gap": 0.26019121994008243,
+      "gap_ci95": [0.2514080784590154, 0.2683057973756164]
+    },
+    {
+      "name": "Common Voice 17 Bengali test (out of domain)",
+      "clips": 9327,
+      "ours": {"cer": 0.5380278659203813, "wer": 0.9393373501051173, "rtf": 0.2068311280921761},
+      "baseline": {"cer": 0.3309215080810357, "wer": 0.8618911713235381, "rtf": 0.10644318854784286},
+      "mean_utterance_cer_gap": 0.18427843974554395,
+      "gap_ci95": [0.1808660259870039, 0.18798952013067138]
+    }
+  ],
+  "examples": [
+    {"reference": "আমার কপালও", "rslt3": "আমার কপানো", "whisper_tiny_bn": "আমার কোপালো"},
+    {"reference": "৯২ সালের", "rslt3": "বেড়ানো বেসালের", "whisper_tiny_bn": "বিড়ানো বই সালের"}
+  ]
+}

@@ -1,0 +1,8 @@
+__pycache__/
+*.py[cod]
+.DS_Store
+.venv/
+venv/
+.python-version
+config.bat
+node_modules

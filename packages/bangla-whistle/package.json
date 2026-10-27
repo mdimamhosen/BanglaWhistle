@@ -1,0 +1,13 @@
+{
+  "name": "bangla-whistle",
+  "version": "1.0.0",
+  "description": "Thin Node.js client for the BanglaWhistle transcription API and local runtime",
+  "type": "module",
+  "bin": {
+    "bangla-whistle": "./bin/bangla-whistle.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "files": ["bin", "README.md"]
+}
